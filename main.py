@@ -17,11 +17,23 @@ screen.onkeypress(player.move, "Up")
 
 game_is_on = True
 while game_is_on:
+
     time.sleep(0.1)
     screen.update()
+    
     car_manager.create_cars()
     car_manager.move_cars()
+    
+    #player wins
     if player.ycor() > 300:
         player.spawn()
         scoreboard.level += 1
         scoreboard.refresh()
+
+    #player dies
+    for car in car_manager.cars:
+        if car.distance(player) < 20:
+            scoreboard.game_over()
+            game_is_on = False
+
+screen.exitonclick()
