@@ -14,5 +14,6 @@ class Scoreboard(Turtle):
         self.refresh()
 
     def refresh(self):
+        self.clear()
         self.write(f'Level: {self.level}', font=FONT)
 

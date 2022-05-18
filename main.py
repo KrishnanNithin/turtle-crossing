@@ -18,3 +18,7 @@ game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
+    if player.ycor() > 300:
+        player.spawn()
+        scoreboard.level += 1
+        scoreboard.refresh()
