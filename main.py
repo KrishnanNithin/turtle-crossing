@@ -22,10 +22,10 @@ while game_is_on:
     screen.update()
     
     car_manager.create_cars()
-    car_manager.move_cars()
+    car_manager.move_cars(scoreboard.level)
     
     #player wins
-    if player.ycor() > 300:
+    if player.ycor() > 280:
         player.spawn()
         scoreboard.level += 1
         scoreboard.refresh()
